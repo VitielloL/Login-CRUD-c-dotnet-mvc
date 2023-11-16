@@ -1,0 +1,39 @@
+﻿@model ProcessoSeletivo.Models.Usuario
+
+<div class="container mt-4">
+    <h2>Editar Usuário</h2>
+
+    <form asp-action="Editar" asp-route-id="@Model.UsuarioId" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Nome">Nome:</label>
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email">Email:</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Senha">Nova Senha:</label>
+            <input asp-for="Senha" type="password" class="form-control" />
+            <span asp-validation-for="Senha" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FotoPerfil">Foto do Perfil:</label>
+            <input asp-for="FotoPerfil" type="file" class="form-control-file" />
+            <span asp-validation-for="FotoPerfil" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    </form>
+
+    <div class="text-center mt-3">
+        <a class="btn btn-secondary" asp-action="Listar">
+            <i class="fas fa-arrow-left"></i> Voltar para a Lista
+        </a>
+    </div>
+</div>

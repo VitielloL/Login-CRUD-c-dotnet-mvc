@@ -1,0 +1,23 @@
+﻿@model ProcessoSeletivo.Models.Usuario
+
+<div class="modal fade" id="confirmacaoExclusaoModal" tabindex="-1" role="dialog" aria-labelledby="confirmacaoExclusaoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmacaoExclusaoModalLabel">Confirmar Exclusão</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Você tem certeza que deseja excluir o usuário <strong>@Model.Nome</strong>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-danger" href="@Url.Action("ExcluirConfirmed", "Usuario", new { id = Model.UsuarioId })">
+                    Confirmar Exclusão
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProcessoSeletivo.Models.Usuario>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>User List</h2>
+        <a class="btn btn-success" asp-action="Cadastrar">
+            <i class="fas fa-user-plus"></i> Cadastrar Novo Usuário
+        </a>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Profile Picture</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>
+                        <img src="@item.FotoPerfil" alt="Profile Picture" class="img-thumbnail" style="max-width: 50px;" />
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn btn-info" asp-action="Detalhes" asp-route-id="@item.UsuarioId">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                            <a class="btn btn-warning" asp-action="Editar" 
+                            asp-route-id="@item.UsuarioId" 
+                            asp-route-Nome="@item.Nome"
+                            asp-route-Senha="@item.Senha"
+                            asp-route-Email="@item.Email"
+                            asp-route-FotoPerfil="@item.FotoPerfil">
+                                <i class="fas fa-user-edit"></i> Edit
+                            </a>
+                            <a class="btn btn-danger" asp-action="Excluir" asp-route-id="@item.UsuarioId"
+                           asp-route-id="@item.UsuarioId"
+                           asp-route-Nome="@item.Nome"
+                           asp-route-Senha="@item.Senha"
+                           asp-route-Email="@item.Email"
+                           asp-route-FotoPerfil="@item.FotoPerfil">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
